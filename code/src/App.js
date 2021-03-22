@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Form } from 'Components/Form';
-import { MessagesCard } from 'Components/MessagesCard';
+
+import  Form  from 'Components/Form';
+import  MessagesCard from 'Components/MessagesCard';
 
 export const App = () => {
   return (
