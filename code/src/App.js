@@ -1,12 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect} from 'react';
 
-import  Form  from 'Components/Form';
-import  MessagesCard from 'Components/MessagesCard';
+import { API_URL } from './reusable/urls';
 
 export const App = () => {
+
+  useEffect(() => {
+    
+  })
+
+  const fetchMessageList = () => {
+    fetch(API_URL)
+    .then(res => res.json())
+    .then(messages => console.log(messages))
+    .catch(err => console.err(err));
+    
+  }
+
+  fetchMessageList();
+
   return (
     <div>
-      Find me in src/app.js!
+      
     </div>
   )
 }
