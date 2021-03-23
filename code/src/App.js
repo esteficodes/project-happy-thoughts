@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import moment from 'moment';
 
 import { API_URL } from './reusable/urls';
 
@@ -19,13 +20,13 @@ export const App = () => {
   }
 
   fetchMessageList();
-//Here there should be added everything that we want to show on the app
+//Here gos the jsx so there should be added everything that we want to show on the app
   return (
     <div>
       {messageList.map(message => (
         <div key={message._id}>
           <h4>{message.text}</h4>
-          <p>{new Date(message.createdAt).toDateString()}</p>
+          <p className="date">-{moment(message.createdAt).fromNow()}</p>
         </div>
 
      ))}
