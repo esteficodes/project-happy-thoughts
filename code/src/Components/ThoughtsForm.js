@@ -26,11 +26,13 @@ const ThoughtsForm = ({ thoughts, setThoughts, newThought, setNewThought }) => {
 
         setNewThought("")
          
-      
       }
+
+      console.log(thoughts);
+
       //This returns JSX for the ThoughtsForm
       return (
-            <form onSubmit={onFormSubmit}>
+            <form className="thoughts-form" onSubmit={onFormSubmit}>
                 <label htmlFor="thoughts-form"> 
                   What's making you happy right now?
                 </label>
@@ -40,7 +42,11 @@ const ThoughtsForm = ({ thoughts, setThoughts, newThought, setNewThought }) => {
                 value={newThought}
                 onChange={onNewThoughtChange}
                 />
-                <button className="form-button" type="submit">Send happy thought!
+                
+                <button>
+                  <span role="img" aria-label="heart icon">💗</span>
+                  Send happy thought!
+                  <span role="img" aria-label="heart icon">💗</span>
                 </button>
             </form>
       )
