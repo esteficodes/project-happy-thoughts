@@ -1,20 +1,20 @@
 import moment from "moment"
 import React from "react"
 
-const ThoughtsCard = ({ thoughts }) => {
+const ThoughtsCard = ({ thought }) => {
     
 
     return (
-        <div
-        key={thoughts._id}
-        classname="thoughtsCard"
+        <div className="thoughtsCard"
         >
         <p className="thoughts-message">
-           { thoughts.message }
+           { thought.message }
         </p>
-        <p className="thought-time">
-                    {moment(thoughts.createdAt).fromNow()}
+          <div className="thoughts-time-container">
+                <p className="thoughts-time">
+                    {moment(thought.createdAt).fromNow()}
                 </p>
+          </div>
         </div>
     )
 }

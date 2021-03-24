@@ -16,6 +16,13 @@ code {
   font-style: italic;
 }
 
+body > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /*Form*/
 
 .thoughts-form {
@@ -44,4 +51,14 @@ code {
   font-family: 'Trispace', sans-serif;
   font-weight: bold;
   cursor: pointer;
+}
+
+
+/*media queries*/
+
+@media (min-width: 667px) {
+  form,
+  .thoughts-form {
+    margin: 20px;
+}
 }
