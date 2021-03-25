@@ -1,9 +1,9 @@
 import React from "react"
 
-const Counter = ({ Counter }) => {
+const Counter = ({ counter }) => {
     return (
         <p className="like-counter">
-            {Counter}
+            {counter}
             <span role="img" aria-label="heart icon">💗</span>
             given
         </p>

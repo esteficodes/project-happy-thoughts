@@ -2,23 +2,21 @@ import React, { useState } from "react"
 
 
 
-
-
 const Like = ({ thought, hearts, setHearts, Counter, setCounter}) => {
     const [isLiked, setIsLiked] = useState(false)
 
-    const onHeartChange = () => {
+    const onLikesIncrease = () => {
 
         setIsLiked(true)
         setCounter(Counter +1)
 
-        const API_URL_ID = `https://happy-thoughts-technigo.herokuapp.com/thoughts/${thought._id}/like`
+        const LIKE_URL_ID = `https://happy-thoughts-technigo.herokuapp.com/thoughts/${thought._id}/like`
 
         const postRequest = {
         method: "POST"
     }
 
-    fetch(API_URL_ID, postRequest)
+    fetch(LIKE_URL_ID, postRequest)
       .then(res => res.json())
       .then(receivedLike => (setHearts(receivedLike.hearts)))
     }
@@ -28,7 +26,7 @@ const Like = ({ thought, hearts, setHearts, Counter, setCounter}) => {
             <button
               disabled={isLiked}
               className="hearts"
-              onClick={onHeartChange}
+              onClick={onLikesIncrease}
             >
                 <span role="img" aria-label="heart-icon">💗</span>
             </button>
