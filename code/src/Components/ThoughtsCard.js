@@ -1,36 +1,26 @@
 import moment from "moment"
-import React from "react"
+import React, { useState } from "react"
 
-import { LIKES_URL } from "reusable/urls";
+import Like from "./Like"
 
-const ThoughtsCard = ({ thought }) => {
 
-    const onLikesIncrease = (id) => {
-        const options = {
-            method: 'POST',
-            headers:{
-                'Content-Type': 'application/json'
-            }
-        };
+const ThoughtsCard = ({ thought, Counter, setCounter }) => {
+    const [hearts, setHearts] = useState(thought.hearts)
 
-        fetch(LIKES_URL(id), options)
-          .then(res => res.json())
-          .then((data) =>  console.log(data))
-          .catch(err => console.err(err));
-      }
     
-
     return (
-        <div className="thoughts-card"
-        >
+        <div className="thoughts-card">
         <p className="thoughts-message">
            { thought.message }
         </p>
-        <button onClick={() => onLikesIncrease(thought._id)}>
-            {thought.likes}
-        ❤️  
-        </button>
-          <div className="thoughts-time-container">
+          <div className="likes-time-container">
+              <Like
+                hearts={hearts}
+                setHearts={setHearts}
+                thought={thought}
+                Counter={Counter}
+                setCounter={setCounter}  
+              />
                 <p className="thoughts-time">
                     {moment(thought.createdAt).fromNow()}
                 </p>

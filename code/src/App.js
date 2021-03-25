@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 
 
 import { API_URL} from "./reusable/urls";
-import ThoughtsForm from "./Components/ThoughtsForm"
-import ThoughtsCard from "./Components/ThoughtsCard"
+import ThoughtsForm from "./Components/ThoughtsForm";
+import ThoughtsCard from "./Components/ThoughtsCard";
+import Counter from "./Components/Counter";
 
 //useState variables here in the export function
 export const App = () => {
   const [thoughts, setThoughts] = useState([]);
   const [newThought, setNewThought] = useState("");
+  const [counter, setCounter] = useState(0)
 
 //useEffect hook should always be imported here right after the function declaration.
 
@@ -44,8 +46,12 @@ return (
        <ThoughtsCard
         key={thought._id}
         thought={thought}
+        counter={counter}
+        setCounter={setCounter}
        />
-     ))}
+     ))
+     }
+     <Counter Counter={Counter} />
      </>
     )
 
