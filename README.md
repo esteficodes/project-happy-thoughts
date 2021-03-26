@@ -21,7 +21,7 @@ It was also exciting to take a first little look at what goes on in the backend!
 <h2>Technologies used</h2>
 
 <ul>
-<li>React state and useEffect</li>
+<li>React hooks</li>
 <li>API</li>
 <li>JavaScript</li>
 <li>Css3</li>

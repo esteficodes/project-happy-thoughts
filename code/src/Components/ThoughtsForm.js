@@ -39,6 +39,7 @@ const ThoughtsForm = ({ thoughts, setThoughts, newThought, setNewThought }) => {
               <input 
                 id="thoughts-form"
                 type="text"
+                placeholder="React is making me happy!"
                 value={newThought}
                 onChange={onNewThoughtChange}
                 />
