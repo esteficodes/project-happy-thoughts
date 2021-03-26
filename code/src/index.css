@@ -38,8 +38,7 @@ form input {
 
 
 .thoughts-card {
-  word-wrap: break-word;
-  
+  word-wrap: break-word; 
 }
 
 .thoughts-form {
@@ -49,6 +48,15 @@ form input {
  font-family: 'Trispace', sans-serif;
 }
 
+/*hearts*/
+
+.hearts {
+  border-radius: 100%;
+}
+
+.hearts:hover {
+  background-color: #ffadad;
+}
 
 
 /*button*/
@@ -70,7 +78,16 @@ form input {
 
 @media (min-width: 667px) {
   form,
-  .thoughts-form {
-    margin: 20px;
+  .thoughts-form { 
+    width: 50%;
+    text-align: center;
+    }
+
+  .thoughts-card {
+  word-wrap: break-word; 
+  text-align: center;
+  width: 40%;
 }
+
+
 }
