@@ -10,7 +10,7 @@ If I had more time, I would add the words counter, which I tried but failed. I w
 
 On a side note, I'm very proud of the way I was able to style it more or less similar to the model. I'm still working on my css skills, and it has proved to be one of my weak ones.
 
-<h2>What I learned</h2> 💪
+<h2>What I learned 💪</h2> 
 
 It's far more convenient to work with React components, but it requires more planning.
 I got a better handle of JavaScript methods applied to functions.
