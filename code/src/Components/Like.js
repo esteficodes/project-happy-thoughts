@@ -10,7 +10,7 @@ const Like = ({ thought, hearts, setHearts, Counter, setCounter}) => {
         setIsLiked(true)
         setCounter(Counter +1)
 
-        const LIKE_URL_ID = `https://happy-thoughts-api-estefania.herokuapp.com/:thoughtsId/like`
+        const LIKE_URL_ID = `https://happy-thoughts-api-estefania.herokuapp.com/thoughts${ID}/like`
 
         const postRequest = {
         method: "POST"
