@@ -2,15 +2,13 @@ import React, { useState } from "react"
 
 
 
-const Like = ({ thought, hearts, setHearts, Counter, setCounter}) => {
+const Like = ({ thought, hearts, setHearts, Counter, setCounter, LIKE_URL_ID}) => {
     const [isLiked, setIsLiked] = useState(false)
 
     const onLikesIncrease = () => {
 
         setIsLiked(true)
         setCounter(Counter +1)
-
-        const LIKE_URL_ID = `https://happy-thoughts-api-estefania.herokuapp.com/thoughts${ID}/like`
 
         const postRequest = {
         method: "POST"
@@ -23,13 +21,13 @@ const Like = ({ thought, hearts, setHearts, Counter, setCounter}) => {
 
     return (
         <div className="hearts-container">
-            <button
+            <button className="hearts"
               disabled={isLiked}
-              className="hearts"
               onClick={onLikesIncrease}
             >
-                <span role="img" aria-label="heart-icon">💗</span>
+                <span className={thought.hearts > 0 ? 'heart-button-liked' : 'heart-button-no-likes'} role="img" aria-label="heart-icon">💗</span>
             </button>
+            <p className='likes-counter'>x {thought.hearts}</p>
             <span>  {hearts}</span>
 
         </div>

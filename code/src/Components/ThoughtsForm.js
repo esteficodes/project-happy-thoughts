@@ -32,24 +32,34 @@ const ThoughtsForm = ({ thoughts, setThoughts, newThought, setNewThought }) => {
 
       //This returns JSX for the ThoughtsForm
       return (
+        <div classname='newThoughtsContainer'>
+          <h1 className= "app-title"><span role="img" aria-label="coding">👩‍💻</span>Happy Coding Thoughts<span role="img" aria-label="coding">👩‍💻</span></h1>
             <form className="thoughts-form" onSubmit={onFormSubmit}>
-                <label htmlFor="thoughts-form"> 
-                  What's making you happy right now?
+                <label htmlFor="thoughts-title"> 
+                  <h1 className="thoughts-title">What's making you happy right now?</h1>
                 </label>
-              <input 
-                id="thoughts-form"
+              <textarea 
+                className="form-input"
+                id='newThought'
                 type="text"
-                placeholder="React is making me happy!"
+                minLength='5'
+                maxLength='140'
+                required
+                placeholder="Write your happy coding thought here!..."
                 value={newThought}
-                onChange={onNewThoughtChange}
-                />
+                onChange={onNewThoughtChange}>
+                </textarea>
                 
-                <button>
-                  <span role="img" aria-label="heart icon">💗</span>
+                <button className="form-button" type='submit'>
+                  <span
+                  role="img"
+                  aria-label="heart icon">💗</span>
                   Send happy thought!
-                  <span role="img" aria-label="heart icon">💗</span>
+                  <span role="img" 
+                  aria-label="heart icon">💗</span>
                 </button>
             </form>
+        </div>
       )
 }
 

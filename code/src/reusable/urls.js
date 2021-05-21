@@ -1,3 +1,2 @@
-export const API_URL = 'https://happy-thoughts-api-estefania.herokuapp.com/';
-//an error message showed saying I should export url
-export default API_URL
+export const API_URL = 'https://happy-thoughts-api-estefania.herokuapp.com/thoughts'
+export const LIKE_URL_ID = thoughtID => `https://backend-happy-thoughts.herokuapp.com/thoughts/${thoughtID}/like`

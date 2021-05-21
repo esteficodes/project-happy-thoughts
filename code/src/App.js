@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-
 import { API_URL} from "./reusable/urls";
 import ThoughtsForm from "./Components/ThoughtsForm";
 import ThoughtsCard from "./Components/ThoughtsCard";
@@ -9,7 +8,9 @@ import Counter from "./Components/Counter";
 //useState variables here in the export function
 export const App = () => {
   const [thoughts, setThoughts] = useState([]);
+  const [isPending, setIsPending] = useState(true)
   const [newThought, setNewThought] = useState("");
+  const [error, setError] = useState(null)
   const [counter, setCounter] = useState(0)
 
 //useEffect hook should always be imported here right after the function declaration.
@@ -24,16 +25,29 @@ export const App = () => {
 //fetching for the messages array from the API
   const fetchThoughts = () => {
     fetch(API_URL)
-    .then(res => res.json())
-    .then(data => setThoughts(data))
+    .then(res => {
+      if (!res.ok) {
+        throw Error('Unable to fetch data')
+      }
+      return res.json()
+    })
+    .then(data => {
+      setThoughts(data)
+      //Changing the pending state when complete
+    setIsPending(false)
+      setError(null)
+    })
     //catches errors during fetch
-    .catch(err => console.log(err));  
+    .catch(err => {
+      setIsPending(false)
+      setError(err.message)
+    })
   }
 
   
-//Here we return the JSX for the thoughts form input
-return (
-  <>
+ return (
+  <main className='main-wrapper'>
+    {error && <div>{ error }</div>}
   {/* This form sends the new thought message*/}
    <ThoughtsForm
      thoughts={thoughts}
@@ -41,6 +55,7 @@ return (
      newThought={newThought}
      setNewThought={setNewThought}
      />
+      {isPending && <div className='loading-message'>Loading...</div>}
      {/*The mapping iterates over the thoughts array and returns the JSX for each though*/}
      {thoughts.map(thought => (
        <ThoughtsCard
@@ -52,7 +67,7 @@ return (
      ))
      }
      <Counter Counter={Counter} />
-     </>
+     </main>
     )
 
    }
