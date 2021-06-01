@@ -31,6 +31,10 @@ It was also exciting to take a first little look at what goes on in the backend!
 
 What is making you happy right now? Visit the Happy thoughts app by clicking the link below and leave your happy thoughts.😃👇
 
-https://happy-thoughts-app-estefania.netlify.app/ 
+This project was updated with the backend made by me on the project week 18. 
+
+ Frontend: https://happy-thoughts-app-estefania.netlify.app/ 
+
+ Backend: https://happy-thoughts-api-estefania.herokuapp.com/
 
 
