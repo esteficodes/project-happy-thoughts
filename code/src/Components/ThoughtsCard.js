@@ -22,7 +22,7 @@ const ThoughtsCard = ({ thought, Counter, setCounter }) => {
                 setCounter={setCounter}  
               />
                 <p className="thoughts-time">
-                    {moment(thought.createdAt).fromNow()}
+                {thought.userName} - {moment(thought.createdAt).fromNow()}
                 </p>
           </div>
         </div>

@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
 import { API_URL} from "./reusable/urls";
-import ThoughtsForm from "./Components/ThoughtsForm";
-import ThoughtsCard from "./Components/ThoughtsCard";
-import Counter from "./Components/Counter";
+import ThoughtsForm from "./components/ThoughtsForm";
+import ThoughtsCard from "./components/ThoughtsCard";
+import Counter from "./components/Counter";
 
 //useState variables here in the export function
 export const App = () => {
   const [thoughts, setThoughts] = useState([]);
   const [isPending, setIsPending] = useState(true)
   const [newThought, setNewThought] = useState("");
+  const [username, setUsername] = useState("")
   const [error, setError] = useState(null)
   const [counter, setCounter] = useState(0)
 
@@ -54,6 +55,8 @@ export const App = () => {
      setThoughts={setThoughts}
      newThought={newThought}
      setNewThought={setNewThought}
+     username={username}
+        setUsername={setUsername}
      />
       {isPending && <div className='loading-message'>Loading...</div>}
      {/*The mapping iterates over the thoughts array and returns the JSX for each though*/}
@@ -61,6 +64,7 @@ export const App = () => {
        <ThoughtsCard
         key={thought._id}
         thought={thought}
+        setThoughts={setThoughts}
         counter={counter}
         setCounter={setCounter}
        />

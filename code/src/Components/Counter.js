@@ -2,7 +2,7 @@ import React from "react"
 
 const Counter = ({ counter }) => {
     return (
-        <p className="like-counter">
+        <p className="likes-counter">
             {counter}
             <span role="img" aria-label="heart icon">💗</span>
             given

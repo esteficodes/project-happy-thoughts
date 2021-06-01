@@ -1,7 +1,7 @@
 import React from "react"
 import  { API_URL }  from "reusable/urls"
 
-const ThoughtsForm = ({ thoughts, setThoughts, newThought, setNewThought }) => {
+const ThoughtsForm = ({ thoughts, setThoughts, newThought, setNewThought, username, setUsername }) => {
 
 //This updates the ThoughtsCard input value
     const onNewThoughtChange = (event) => {
@@ -16,40 +16,50 @@ const ThoughtsForm = ({ thoughts, setThoughts, newThought, setNewThought }) => {
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({ message: newThought })
+          body: JSON.stringify({
+             message: newThought,
+             userName: username === "" ? undefined : username
+             })
         }
         //Below there's backend sending a response back to us
         fetch(API_URL, postRequest) 
-        .then(res => res.json())
-        .then(receivedThought => setThoughts([receivedThought, ...thoughts]))
-        .catch(err => console.error(err));
+          .then(res => res.json())
+          .then(receivedThought => setThoughts([receivedThought, ...thoughts]))
+          .catch(err => console.error(err));
 
         setNewThought("")
+        setUsername("")
          
       }
 
-      console.log(thoughts);
-
-      //This returns JSX for the ThoughtsForm
       return (
-        <div classname='newThoughtsContainer'>
+        <div classname='new-thoughts-container'>
           <h1 className= "app-title"><span role="img" aria-label="coding">👩‍💻</span>Happy Coding Thoughts<span role="img" aria-label="coding">👩‍💻</span></h1>
             <form className="thoughts-form" onSubmit={onFormSubmit}>
                 <label htmlFor="thoughts-title"> 
                   <h1 className="thoughts-title">What's making you happy right now?</h1>
                 </label>
-              <textarea 
+              <input 
                 className="form-input"
                 id='newThought'
                 type="text"
                 minLength='5'
                 maxLength='140'
                 required
-                placeholder="Write your happy coding thought here!..."
+                placeholder="Write your happy coding thought here..."
                 value={newThought}
-                onChange={onNewThoughtChange}>
-                </textarea>
-                
+                onChange={onNewThoughtChange}/>
+                <p className={newThought.length > 140 ? "red" : ""} >{newThought.length} / 140</p>            
+                <label htmlFor="username-form" className="username-label">
+                Name (optional)
+                </label>
+            <input
+                id="username-form"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className="username-input"
+            />                
                 <button className="form-button" type='submit'>
                   <span
                   role="img"
