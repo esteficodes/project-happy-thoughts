@@ -56,7 +56,7 @@ export const App = () => {
      newThought={newThought}
      setNewThought={setNewThought}
      username={username}
-        setUsername={setUsername}
+     setUsername={setUsername}
      />
       {isPending && <div className='loading-message'>Loading...</div>}
      {/*The mapping iterates over the thoughts array and returns the JSX for each though*/}

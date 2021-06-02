@@ -11,7 +11,7 @@ const ThoughtsCard = ({ thought, Counter, setCounter }) => {
     return (
         <div className="thoughts-card">
         <p className="thoughts-message">
-           { thought.message }
+           {thought.message}
         </p>
           <div className="likes-time-container">
               <Like
