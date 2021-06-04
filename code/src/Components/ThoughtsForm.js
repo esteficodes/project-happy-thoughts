@@ -18,7 +18,7 @@ const ThoughtsForm = ({ thoughts, setThoughts, newThought, setNewThought, userna
           },
           body: JSON.stringify({
              message: newThought,
-             userName: username === "" ? undefined : username
+             username: username 
              })
         }
         //Below there's backend sending a response back to us
