@@ -7,6 +7,10 @@ const ThoughtsForm = ({ thoughts, setThoughts, newThought, setNewThought, userna
     const onNewThoughtChange = (event) => {
         setNewThought(event.target.value)
     }
+
+    const onUsernameChange = (event) => {
+      setUsername(event.target.value)
+    }
 //This saves the ThoughtsCard message on the server when the form is submitted. It uses fetch post request
     const onFormSubmit = (event) => {
         event.preventDefault();
@@ -18,7 +22,7 @@ const ThoughtsForm = ({ thoughts, setThoughts, newThought, setNewThought, userna
           },
           body: JSON.stringify({
              message: newThought,
-             username: username 
+             username: username === "" ? undefined : username
              })
         }
         //Below there's backend sending a response back to us
@@ -33,7 +37,7 @@ const ThoughtsForm = ({ thoughts, setThoughts, newThought, setNewThought, userna
       }
 
       return (
-        <div classname='new-thoughts-container'>
+        <div className='new-thoughts-container'>
           <h1 className= "app-title"><span role="img" aria-label="coding">👩‍💻</span>Happy Coding Thoughts<span role="img" aria-label="coding">👩‍💻</span></h1>
             <form className="thoughts-form" onSubmit={onFormSubmit}>
                 <label htmlFor="thoughts-title"> 
@@ -57,7 +61,7 @@ const ThoughtsForm = ({ thoughts, setThoughts, newThought, setNewThought, userna
                 id="username-form"
                 type="text"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={onUsernameChange}
                 className="username-input"
             />                
                 <button className="form-button" type='submit'>
